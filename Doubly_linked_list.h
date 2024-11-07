@@ -22,6 +22,8 @@ public:
     void insert_head(const T& value);   //dodaj na poczatek
     void insert_tail(const T& value);    //Dodaj na koncu
     void set_index(const T& value, int index);    //Dodaj na wybranej pozycji
+    void remove_head(); //usun poczatek
+    void remove_tail(); //usun koniec
 };
 
 // wyswietl
@@ -68,7 +70,7 @@ void DoublyLinkedList<T>::insert_tail(const T& value) {
     counter++; // Zwiêkszamy licznik elementów
 }
 
-
+//dodaj na wybranej pozycji
 template <class T>
 void DoublyLinkedList<T>::set_index(const T& value, int index) {
     Node<T>* new_node = new Node<T>{ value }; // Tworzymy nowy wêze³
@@ -101,14 +103,49 @@ void DoublyLinkedList<T>::set_index(const T& value, int index) {
         counter++;
     }
 }
+// Implementacja metody remove_head
+template <class T>
+void DoublyLinkedList<T>::remove_head() {
+    if (head == nullptr) { // Jeœli lista jest pusta, nic nie robimy
+        cout << "List is empty!" << endl;
+        return;
+    }
 
+    Node<T>* node_to_remove = head;
+    head = head->next;
 
+    if (head != nullptr) {
+        head->prev = nullptr; // Ustawiamy poprzedni wskaŸnik na nullptr
+    }
+    else {
+        tail = nullptr; // Jeœli lista jest teraz pusta, ustawiamy tail na nullptr
+    }
 
+    delete node_to_remove;
+    counter--;
+}
 
+// Implementacja metody remove_tail
+template <class T>
+void DoublyLinkedList<T>::remove_tail() {
+    if (tail == nullptr) { // Jeœli lista jest pusta, nic nie robimy
+        cout << "List is empty!" << endl;
+        return;
+    }
 
+    Node<T>* node_to_remove = tail;
+    tail = tail->prev;
 
+    if (tail != nullptr) {
+        tail->next = nullptr; // Ustawiamy nastêpny wskaŸnik na nullptr
+    }
+    else {
+        head = nullptr; // Jeœli lista jest teraz pusta, ustawiamy head na nullptr
+    }
 
-
+    delete node_to_remove;
+    counter--;
+}
 
 #endif // DOUBLY_LINKED_LIST_H
 

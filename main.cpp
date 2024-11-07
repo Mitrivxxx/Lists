@@ -15,8 +15,8 @@ int main()
 	lista.insert_tail(9);
 	lista.insert_tail(9);
 
-	lista.set_index(3, 3);
-	lista.set_index(3, 3);
+	lista.remove_tail();
+	lista.remove_head();
 
 
 
