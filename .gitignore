@@ -1,49 +1,12 @@
-# Pliki binarne i obiekty wygenerowane podczas kompilacji
-*.o
-*.obj
-*.exe
-*.out
-*.dll
-*.so
-*.dylib
-*.a
-*.lib
-*.app
-
-# Foldery build i cmake
-/build/
-/CMakeFiles/
-/CMakeCache.txt
-Makefile
-cmake_install.cmake
-
-# Pliki Visual Studio
-*.sln
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
-.vscode/
-.vs/
-*.pdb
-*.ipch
-*.opensdf
-*.suo
-*.user
-*.log
-*.tlog
-*.lastbuildstate
-
-# Pliki Code::Blocks
-*.layout
-*.cbp
-*.depend
-
-# Pliki CLion
-.idea/
-*.iml
-
-# Pliki systemowe i tymczasowe
-*.DS_Store
-*.Thumbs.db
-*.swp
-*~
+        Doubly_linked_list.cpp
+        Node.cpp
+        PropertySheet.props
+        listy.vcxproj
+        listy.vcxproj.filters
+        listy.vcxproj.user
+        listy_TemporaryKey.pfx
+        packages.config
+        pch.cpp
+        pch.h
+        readme.txt
+        x64/
