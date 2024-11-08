@@ -3,7 +3,7 @@
 #include "Doubly_linked_list.h"
 
 using namespace std;
-//jakas zmiana 1
+//jakas zmiana 2
 
 /**
  * @file main.cpp
