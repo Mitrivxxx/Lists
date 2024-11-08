@@ -9,97 +9,97 @@ using namespace std;
 
 /**
  * @class DoublyLinkedList
- * @brief Klasa implementuj¹ca listê dwukierunkow¹.
+ * @brief Klasa implementujaca liste dwukierunkowa.
  *
- * Ta klasa umo¿liwia operacje na liœcie dwukierunkowej, takie jak dodawanie,
- * usuwanie i wyœwietlanie elementów w obu kierunkach.
+ * Ta klasa umozliwia operacje na liscie dwukierunkowej, takie jak dodawanie,
+ * usuwanie i wyswietlanie elementow w obu kierunkach.
  *
- * @tparam T Typ elementów przechowywanych w liœcie.
+ * @tparam T Typ elementow przechowywanych w liscie.
  */
 template <class T>
 class DoublyLinkedList {
 private:
-    Node<T>* head = nullptr; ///< WskaŸnik na pierwszy element listy
-    Node<T>* tail = nullptr; ///< WskaŸnik na ostatni element listy
-    int counter = 0;         ///< Licznik elementów na liœcie
+    Node<T>* head = nullptr; ///< Wskaznik na pierwszy element listy
+    Node<T>* tail = nullptr; ///< Wskaznik na ostatni element listy
+    int counter = 0;         ///< Licznik elementow na liscie
 public:
-    /** Konstruktor domyœlny */
+    /** Konstruktor domyslny */
     DoublyLinkedList() = default;
 
     /**
-     * @brief Wyœwietla wszystkie elementy listy od pocz¹tku do koñca.
+     * @brief Wyswietla wszystkie elementy listy od poczatku do konca.
      *
-     * Funkcja przechodzi przez listê i wyœwietla jej elementy w kolejnoœci od head do tail.
+     * Funkcja przechodzi przez liste i wyswietla jej elementy w kolejnosci od head do tail.
      */
     void show() const;
 
     /**
-     * @brief Dodaje element na pocz¹tek listy.
+     * @brief Dodaje element na poczatek listy.
      *
-     * Tworzy nowy wêze³ i ustawia go jako pierwszy element listy.
+     * Tworzy nowy wezel i ustawia go jako pierwszy element listy.
      *
-     * @param value Wartoœæ elementu, który ma zostaæ dodany na pocz¹tek.
+     * @param value Wartosc elementu, ktory ma zostac dodany na poczatek.
      */
     void insert_head(const T& value);
 
     /**
      * @brief Dodaje element na koniec listy.
      *
-     * Tworzy nowy wêze³ i ustawia go jako ostatni element listy.
+     * Tworzy nowy wezel i ustawia go jako ostatni element listy.
      *
-     * @param value Wartoœæ elementu, który ma zostaæ dodany na koniec.
+     * @param value Wartosc elementu, ktory ma zostac dodany na koniec.
      */
     void insert_tail(const T& value);
 
     /**
-     * @brief Dodaje element na wybranej pozycji w liœcie.
+     * @brief Dodaje element na wybranej pozycji w liscie.
      *
-     * Funkcja pozwala na dodanie elementu na okreœlonej pozycji w liœcie.
-     * Jeœli pozycja jest poza zakresem, operacja jest ignorowana.
+     * Funkcja pozwala na dodanie elementu na okreslonej pozycji w liscie.
+     * Jezeli pozycja jest poza zakresem, operacja jest ignorowana.
      *
-     * @param value Wartoœæ elementu, który ma zostaæ dodany.
-     * @param index Indeks, na którym ma zostaæ dodany element.
+     * @param value Wartosc elementu, ktory ma zostac dodany.
+     * @param index Indeks, na ktorym ma zostac dodany element.
      */
     void set_index(const T& value, int index);
 
     /**
-     * @brief Usuwa element z pocz¹tku listy.
+     * @brief Usuwa element z poczatku listy.
      *
-     * Funkcja usuwa pierwszy element listy. Jeœli lista jest pusta, nic siê nie dzieje.
+     * Funkcja usuwa pierwszy element listy. Jezeli lista jest pusta, nic sie nie dzieje.
      */
     void remove_head();
 
     /**
-     * @brief Usuwa element z koñca listy.
+     * @brief Usuwa element z konca listy.
      *
-     * Funkcja usuwa ostatni element listy. Jeœli lista jest pusta, nic siê nie dzieje.
+     * Funkcja usuwa ostatni element listy. Jezeli lista jest pusta, nic sie nie dzieje.
      */
     void remove_tail();
 
     /**
-     * @brief Wyœwietla wszystkie elementy listy w odwrotnej kolejnoœci.
+     * @brief Wyswietla wszystkie elementy listy w odwrotnej kolejnosci.
      *
-     * Funkcja przechodzi przez listê od tail do head i wyœwietla jej elementy.
+     * Funkcja przechodzi przez liste od tail do head i wyswietla jej elementy.
      */
     void show_backward() const;
 
     /**
-     * @brief Przechodzi do nastêpnego elementu listy.
+     * @brief Przechodzi do nastepnego elementu listy.
      *
-     * Funkcja przechodzi przez listê w kierunku od head do tail i wyœwietla wartoœæ
-     * nastêpnego elementu po okreœlonym indeksie.
+     * Funkcja przechodzi przez liste w kierunku od head do tail i wyswietla wartosc
+     * nastepnego elementu po okreslonym indeksie.
      *
-     * @param index Indeks elementu, od którego rozpoczynamy przechodzenie.
+     * @param index Indeks elementu, od ktorego rozpoczynamy przechodzenie.
      */
     void goNext(int index);
 
     /**
      * @brief Przechodzi do poprzedniego elementu listy.
      *
-     * Funkcja przechodzi przez listê w kierunku od tail do head i wyœwietla wartoœæ
-     * poprzedniego elementu przed okreœlonym indeksem.
+     * Funkcja przechodzi przez liste w kierunku od tail do head i wyswietla wartosc
+     * poprzedniego elementu przed okreslonym indeksem.
      *
-     * @param index Indeks elementu, od którego rozpoczynamy przechodzenie.
+     * @param index Indeks elementu, od ktorego rozpoczynamy przechodzenie.
      */
     void goPrevious(int index);
 };
@@ -107,80 +107,80 @@ public:
 // Implementacja metod
 
 /**
- * @brief Wyœwietla wszystkie elementy listy od pocz¹tku do koñca.
+ * @brief Wyswietla wszystkie elementy listy od poczatku do konca.
  */
 template <class T>
 void DoublyLinkedList<T>::show() const {
     Node<T>* current = head; // Zaczynamy od pierwszego elementu
-    cout << "Lista: ";
-    while (current != nullptr) { // Przechodzimy przez ca³¹ listê
-        cout << current->value << " "; // Wyœwietlamy wartoœæ bie¿¹cego elementu
-        current = current->next; // Przechodzimy do nastêpnego elementu
+    cout << "Wyswietl cala liste od poczatku: ";
+    while (current != nullptr) { // Przechodzimy przez cala liste
+        cout << current->value << " "; // Wyswietlamy wartosc biezacego elementu
+        current = current->next; // Przechodzimy do nastepnego elementu
     }
     cout << endl;
 }
 
 /**
- * @brief Dodaje element na pocz¹tek listy.
+ * @brief Dodaje element na poczatek listy.
  *
- * Tworzy nowy wêze³ i ustawia go jako pierwszy element listy.
+ * Tworzy nowy wezel i ustawia go jako pierwszy element listy.
  */
 template <class T>
 void DoublyLinkedList<T>::insert_head(const T& value) {
-    Node<T>* new_node = new Node<T>{ value }; // Tworzymy nowy wêze³
+    Node<T>* new_node = new Node<T>{ value }; // Tworzymy nowy wezel
 
-    if (head == nullptr) { // Jeœli lista jest pusta
-        head = tail = new_node; // Nowy wêze³ jest zarówno head, jak i tail
+    if (head == nullptr) { // Jezeli lista jest pusta
+        head = tail = new_node; // Nowy wezel jest zarowno head, jak i tail
     }
     else {
-        new_node->next = head; // Ustawiamy nowy wêze³ jako head
+        new_node->next = head; // Ustawiamy nowy wezel jako head
         head->prev = new_node;
         head = new_node;
     }
-    counter++; // Zwiêkszamy licznik elementów
+    counter++; // Zwiekszamy licznik elementow
 }
 
 /**
  * @brief Dodaje element na koniec listy.
  *
- * Tworzy nowy wêze³ i ustawia go jako ostatni element listy.
+ * Tworzy nowy wezel i ustawia go jako ostatni element listy.
  */
 template <class T>
 void DoublyLinkedList<T>::insert_tail(const T& value) {
-    Node<T>* new_node = new Node<T>{ value }; // Tworzymy nowy wêze³
+    Node<T>* new_node = new Node<T>{ value }; // Tworzymy nowy wezel
 
-    if (tail == nullptr) { // Jeœli lista jest pusta
-        head = tail = new_node; // Nowy wêze³ jest zarówno head, jak i tail
+    if (tail == nullptr) { // Jezeli lista jest pusta
+        head = tail = new_node; // Nowy wezel jest zarowno head, jak i tail
     }
     else {
-        tail->next = new_node; // Ustawiamy nowy wêze³ jako tail
+        tail->next = new_node; // Ustawiamy nowy wezel jako tail
         new_node->prev = tail;
         tail = new_node;
     }
 
-    counter++; // Zwiêkszamy licznik elementów
+    counter++; // Zwiekszamy licznik elementow
 }
 
 /**
- * @brief Dodaje element na wybranej pozycji w liœcie.
+ * @brief Dodaje element na wybranej pozycji w liscie.
  *
- * Funkcja pozwala na dodanie elementu na okreœlonej pozycji w liœcie.
- * Jeœli pozycja jest poza zakresem, operacja jest ignorowana.
+ * Funkcja pozwala na dodanie elementu na okreslonej pozycji w liscie.
+ * Jezeli pozycja jest poza zakresem, operacja jest ignorowana.
  */
 template <class T>
 void DoublyLinkedList<T>::set_index(const T& value, int index) {
-    Node<T>* new_node = new Node<T>{ value }; // Tworzymy nowy wêze³
+    Node<T>* new_node = new Node<T>{ value }; // Tworzymy nowy wezel
 
     if (index < 0 || index > counter) {
-        cout << "Index out of bounds!" << endl;
+        cout << "Index poza zakresem!" << endl;
         return; // Indeks poza zakresem
     }
 
     if (index == 0) {
-        insert_head(value); // Dodajemy na pocz¹tku listy
+        insert_head(value); // Dodajemy na poczatku listy
     }
     else if (index == counter) {
-        insert_tail(value); // Dodajemy na koñcu listy
+        insert_tail(value); // Dodajemy na koncu listy
     }
     else {
         Node<T>* current = head;
@@ -189,7 +189,7 @@ void DoublyLinkedList<T>::set_index(const T& value, int index) {
             current = current->next;
         }
 
-        // Zmieniamy wskaŸniki, aby wstawiæ nowy wêze³ w odpowiedni¹ pozycjê
+        // Zmieniamy wskazniki, aby wstawic nowy wezel w odpowiednia pozycje
         new_node->prev = current->prev;
         new_node->next = current;
         current->prev->next = new_node;
@@ -200,14 +200,14 @@ void DoublyLinkedList<T>::set_index(const T& value, int index) {
 }
 
 /**
- * @brief Usuwa element z pocz¹tku listy.
+ * @brief Usuwa element z poczatku listy.
  *
  * Funkcja usuwa pierwszy element listy.
  */
 template <class T>
 void DoublyLinkedList<T>::remove_head() {
-    if (head == nullptr) { // Jeœli lista jest pusta, nic nie robimy
-        cout << "List is empty!" << endl;
+    if (head == nullptr) { // Jezeli lista jest pusta, nic nie robimy
+        cout << "Lista jest pusta!" << endl;
         return;
     }
 
@@ -215,10 +215,10 @@ void DoublyLinkedList<T>::remove_head() {
     head = head->next;
 
     if (head != nullptr) {
-        head->prev = nullptr; // Ustawiamy poprzedni wskaŸnik na nullptr
+        head->prev = nullptr; // Ustawiamy poprzedni wskaznik na nullptr
     }
     else {
-        tail = nullptr; // Jeœli lista jest teraz pusta, ustawiamy tail na nullptr
+        tail = nullptr; // Jezeli lista jest teraz pusta, ustawiamy tail na nullptr
     }
 
     delete node_to_remove;
@@ -226,14 +226,14 @@ void DoublyLinkedList<T>::remove_head() {
 }
 
 /**
- * @brief Usuwa element z koñca listy.
+ * @brief Usuwa element z konca listy.
  *
  * Funkcja usuwa ostatni element listy.
  */
 template <class T>
 void DoublyLinkedList<T>::remove_tail() {
-    if (tail == nullptr) { // Jeœli lista jest pusta, nic nie robimy
-        cout << "List is empty!" << endl;
+    if (tail == nullptr) { // Jezeli lista jest pusta, nic nie robimy
+        cout << "Lista jest pusta!" << endl;
         return;
     }
 
@@ -241,10 +241,10 @@ void DoublyLinkedList<T>::remove_tail() {
     tail = tail->prev;
 
     if (tail != nullptr) {
-        tail->next = nullptr; // Ustawiamy nastêpny wskaŸnik na nullptr
+        tail->next = nullptr; // Ustawiamy nastepny wskaznik na nullptr
     }
     else {
-        head = nullptr; // Jeœli lista jest teraz pusta, ustawiamy head na nullptr
+        head = nullptr; // Jezeli lista jest teraz pusta, ustawiamy head na nullptr
     }
 
     delete node_to_remove;
@@ -252,11 +252,12 @@ void DoublyLinkedList<T>::remove_tail() {
 }
 
 /**
- * @brief Wyœwietla wszystkie elementy listy w odwrotnej kolejnoœci.
+ * @brief Wyswietla wszystkie elementy listy w odwrotnej kolejnosci.
  */
 template <class T>
 void DoublyLinkedList<T>::show_backward() const {
     Node<T>* current = tail;
+    cout << "Wyswietl cala liste od konca: ";
     while (current != nullptr) {
         cout << current->value << " ";
         current = current->prev;
@@ -265,51 +266,51 @@ void DoublyLinkedList<T>::show_backward() const {
 }
 
 /**
- * @brief Przechodzi do nastêpnego elementu listy.
+ * @brief Przechodzi do nastepnego elementu listy.
  *
- * Funkcja przechodzi do elementu znajduj¹cego siê po wskazanym indeksie.
+ * Funkcja przechodzi do elementu znajdujacego sie po wskazanym indeksie.
  */
 template <class T>
 void DoublyLinkedList<T>::goNext(int index) {
     Node<T>* current = head;
     int count = 0;
-
-    // Przechodzimy przez listê a¿ do wskazanego indeksu
+    // Przechodzimy przez liste az do wskazanego indeksu
     while (current != nullptr && count < index) {
         current = current->next;
         count++;
     }
 
     if (current == nullptr || current->next == nullptr) {
-        cout << "No next element found." << endl;
+        cout << "Brak nastepnego elementu." << endl;
         return;
     }
 
-    cout << "Next element: " << current->next->value << endl;
+    cout << "Nastepnym elementem jest: " << current->next->value << " porownujac do indeksu: " << index << endl;
 }
 
 /**
  * @brief Przechodzi do poprzedniego elementu listy.
  *
- * Funkcja przechodzi do elementu znajduj¹cego siê przed wskazanym indeksem.
+ * Funkcja przechodzi do elementu znajdujacego sie przed wskazanym indeksem.
  */
 template <class T>
 void DoublyLinkedList<T>::goPrevious(int index) {
-    Node<T>* current = head;
-    int count = 0;
-
-    // Przechodzimy przez listê a¿ do wskazanego indeksu
-    while (current != nullptr && count < index) {
-        current = current->next;
-        count++;
-    }
-
-    if (current == nullptr || current->prev == nullptr) {
-        cout << "No previous element found." << endl;
+    if (index <= 0) {
+        std::cout << "Nie ma poprzedniego elementu\n";
         return;
     }
 
-    cout << "Previous element: " << current->prev->value << endl;
+    if (index >= counter) {
+        std::cout << "Index poza zakresem\n";
+        return;
+    }
+
+    Node<T>* current = head;
+    for (int i = 0; i < index - 1; ++i) {
+        current = current->next;
+    }
+
+    cout << "Nastepnym elementem jest: " << current->value << " porownujac do indeksu: " << index << endl;
 }
 
 #endif // DOUBLY_LINKED_LIST_H

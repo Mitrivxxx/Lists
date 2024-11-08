@@ -25,24 +25,34 @@ int main() {
      * Tworzymy instancję listy dwukierunkowej.
      */
     DoublyLinkedList<int> lista;
+    /**
+    * Tworzymy uzupelniamy liste o pare elementow aby nie byla pusta.
+    */
+    lista.insert_head(1);
+    lista.insert_head(2);
+    lista.insert_head(3);
+    lista.insert_head(4);
+    lista.insert_head(5);
 
     /**
-     * Dodajemy elementy na początek listy.
-     * Każdy nowy element będzie dodawany przed istniejącymi elementami.
+     * Dodajemy elementy na poczatek listy.
+     * Każdy nowy element bedzie dodawany przed istniejacymi elementami.
      */
     lista.insert_head(4);  ///< Dodaj na początek 4
-    lista.insert_head(5);  ///< Dodaj na początek 5
-    lista.insert_head(6);  ///< Dodaj na początek 6
-    lista.insert_head(1);  ///< Dodaj na początek 1
-    lista.insert_head(1);  ///< Dodaj na początek 1 (ponownie)
 
     /**
      * Dodajemy elementy na koniec listy.
-     * Każdy nowy element będzie dodawany po ostatnim istniejącym elemencie.
+     * Kazdy nowy element bedzie dodawany po ostatnim istniejacym elemencie.
      */
     lista.insert_tail(9);  ///< Dodaj na koniec 9
-    lista.insert_tail(9);  ///< Dodaj na koniec 9 (ponownie)
 
+        /**
+     * Wstaw elementy na wybranej pozycji (element, index)
+     */
+    lista.set_index(3, 2);  ///< Ustaw element na pozycji 2
+    lista.set_index(3, 3);  ///< Usuwamy element na pozycji 3
+    cout << "\t---Stan poczatkowy listy---" << endl;
+    lista.show(); cout << endl;
     /**
      * Usuwamy elementy z końca i początku listy.
      * Usuwanie z początku (remove_head) i z końca (remove_tail).
